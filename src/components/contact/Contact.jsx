@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const postFormData = async (name, email, message) => {
-  const { data } = await axios
+  const result = await axios
     .post(
       `${import.meta.env.VITE_BASE_URL}`,
       { fields: { name: name, email: email, message: message } },
@@ -13,7 +15,16 @@ const postFormData = async (name, email, message) => {
         },
       }
     )
-    .catch((error) => console.error(error));
+    .then((response) => {
+      if (response.status === 200) {
+        toast.success("Thanks for reaching out!");
+      } else {
+        throw new error("something went wrong!");
+      }
+    })
+    .catch((error) => {
+      toast.error(error);
+    });
 };
 const Contact = () => {
   const [name, setName] = useState("");
@@ -44,7 +55,7 @@ const Contact = () => {
       </div>
       <form
         action="submit"
-        className="flex flex-col gap-5 font-bold"
+        className="flex flex-col gap-5 text-sm lg:text-lg font-bold"
         onSubmit={handleSubmit}
       >
         <div>
@@ -86,6 +97,7 @@ const Contact = () => {
           </button>
         </div>
       </form>
+      <ToastContainer theme="dark" autoClose={2000} />
     </div>
   );
 };

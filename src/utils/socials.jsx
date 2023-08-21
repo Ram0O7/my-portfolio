@@ -1,10 +1,4 @@
-import {
-  FaGithub,
-  FaTwitter,
-  FaLinkedin,
-  FaInstagram,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default [
   {
@@ -17,7 +11,7 @@ export default [
     name: "github",
     url: "https://github.com/Ram0O7",
     icon: <FaGithub />,
-    style: "hover:text-black",
+    style: "hover:text-backdrop",
   },
   {
     name: "whatsapp",

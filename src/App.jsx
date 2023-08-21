@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Skill from "./components/Skill/Skill";

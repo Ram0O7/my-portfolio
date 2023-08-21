@@ -2,8 +2,15 @@ import React, { useRef, useState } from "react";
 import Button from "../../UI/Button/Button";
 import projects from "../../utils/projects";
 
+const getSessionStorage = () => {
+  let val = +sessionStorage.getItem("loadStatus");
+  if (val <= 10) {
+    return val + 4;
+  }
+  return 6;
+};
 const Project = () => {
-  const [load, setLoad] = useState(6);
+  const [load, setLoad] = useState(getSessionStorage());
   const [loadingStatus, setLoadingStatus] = useState("more");
   const projectLoadRef = useRef(null);
 
@@ -14,6 +21,7 @@ const Project = () => {
       setLoadingStatus("more");
       setLoad(6);
     }
+    sessionStorage.setItem("loadStatus", load);
     projectLoadRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
