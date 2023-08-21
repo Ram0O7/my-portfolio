@@ -59,9 +59,7 @@ nav ul li a {
   margin-left: auto;
   margin-right: auto; */
 }
-.profile-img:hover {
-  background-size: 120%;
-}
+
 .btn::after {
   content: "";
   position: absolute;
@@ -106,6 +104,9 @@ form > div textarea::placeholder {
     top: 0;
     right: 0;
     left: unset;
+  }
+  .profile-img:hover {
+    background-size: 120%;
   }
 }
 @media (min-width: 1024px) {

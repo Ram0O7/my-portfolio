@@ -10,6 +10,7 @@ export default {
       colors: {
         "bg-primary": "#F5761A",
         "text-primary": "#717171",
+        backdrop: "#000a",
       },
     },
   },
