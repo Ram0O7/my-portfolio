@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const postFormData = async (name, email, message) => {
+const postFormData = async (name, email, message, toastId) => {
   const result = await axios
     .post(
       `${import.meta.env.VITE_BASE_URL}`,
@@ -17,13 +17,29 @@ const postFormData = async (name, email, message) => {
     )
     .then((response) => {
       if (response.status === 200) {
-        toast.success("Thanks for reaching out!");
+        toast.update(toastId, {
+          render: "Thanks for reaching out!",
+          type: toast.TYPE.SUCCESS,
+          autoClose: 5000,
+        });
       } else {
         throw new error("something went wrong!");
       }
     })
     .catch((error) => {
-      toast.error(error);
+      if (!error.response) {
+        toast.update(toastId, {
+          render: "internet connection required!",
+          type: toast.TYPE.WARNING,
+          autoClose: 5000,
+        });
+      } else {
+        toast.update(toastId, {
+          render: error,
+          type: toast.TYPE.ERROR,
+          autoClose: 5000,
+        });
+      }
     });
 };
 const Contact = () => {
@@ -33,15 +49,17 @@ const Contact = () => {
   const nameInputRef = useRef(null);
   const emailInputRef = useRef(null);
   const messageInputRef = useRef(null);
+  const toastRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    toastRef.current = toast.info("processing your info...");
     //clearing the form
     nameInputRef.current.value = "";
     emailInputRef.current.value = "";
     messageInputRef.current.value = "";
     // posting data to airtable
-    postFormData(name, email, message);
+    postFormData(name, email, message, toastRef.current);
   };
 
   return (
@@ -55,7 +73,7 @@ const Contact = () => {
       </div>
       <form
         action="submit"
-        className="flex flex-col gap-5 text-sm lg:text-lg font-bold"
+        className="flex flex-col gap-5 text-sm font-bold"
         onSubmit={handleSubmit}
       >
         <div>
@@ -97,7 +115,7 @@ const Contact = () => {
           </button>
         </div>
       </form>
-      <ToastContainer theme="dark" autoClose={2000} />
+      <ToastContainer theme="dark" autoClose={false} />
     </div>
   );
 };

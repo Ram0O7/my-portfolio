@@ -13,6 +13,21 @@ main {
   padding-inline: 5vw;
 }
 
+.skill_slide {
+  animation: slide 20s infinite linear;
+  animation-fill-mode: forwards;
+}
+.skill_container:active .skill_slide {
+  animation-play-state: paused;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-2080px);
+  }
+}
 .logo-animation {
   background: linear-gradient(to left, #f5761a, #717171);
   animation: gradient_wave 5s linear infinite alternate;
@@ -93,7 +108,14 @@ form > div textarea::placeholder {
   color: #717171;
 }
 
+svg {
+  filter: drop-shadow(4px 7px 3px rgb(0 0 0 / 0.2));
+}
+
 @media (min-width: 768px) {
+  .skill_container:hover .skill_slide {
+    animation-play-state: paused;
+  }
   main {
     padding-inline: 5vw;
   }
