@@ -1,0 +1,16 @@
+{
+  "name": "Ramkrishn Rai",
+  "short_name": "R.K R",
+  "description": "this is my portfolio website.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#1f1f1f",
+  "theme_color": "#007bff",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dn6bzdlno/image/upload/v1692613956/profile_qf2bmd.jpg",
+      "sizes": "144x144",
+      "type": "image/jpeg"
+    }
+  ]
+}
