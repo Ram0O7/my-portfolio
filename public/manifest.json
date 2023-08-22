@@ -33,12 +33,7 @@
       "type": "image/jpeg"
     },
     {
-      "src": "https://res.cloudinary.com/dn6bzdlno/image/upload/v1692613956/profile_qf2bmd.jpg",
-      "sizes": "324x480",
-      "type": "image/jpeg"
-    },
-    {
-      "src": "https://res.cloudinary.com/dn6bzdlno/image/upload/v1692613956/profile_qf2bmd.jpg",
+      "src": "logo.png",
       "sizes": "512x512",
       "type": "image/jpeg"
     }

@@ -25,7 +25,7 @@ main {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-2080px);
+    transform: translateX(-1760px);
   }
 }
 .logo-animation {
@@ -66,13 +66,6 @@ nav ul li a {
   filter: grayscale(0.4);
   opacity: 0.85;
   transition: background-size 0.5s ease-in-out;
-  /* centering a absolutely positioned elemnet */
-  /* position: absolute; */
-  /* left: 0;
-  top:6rem;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto; */
 }
 
 .btn::after {
@@ -113,6 +106,14 @@ svg {
 }
 
 @media (min-width: 768px) {
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-2080px);
+    }
+  }
   .skill_container:hover .skill_slide {
     animation-play-state: paused;
   }
