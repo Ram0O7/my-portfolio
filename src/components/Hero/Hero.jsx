@@ -1,4 +1,5 @@
 import React from "react";
+import referToComponent from "../../utils/refer";
 import Button from "../../UI/Button/Button";
 
 const Hero = () => {
@@ -21,7 +22,7 @@ const Hero = () => {
           accessible web apps that users love.
         </p>
       </div>
-      <Button url="mailto:ram706860@gmail.com" text="contact me" />
+      <Button url="/#contact" text="contact me" onClick={referToComponent} />
     </div>
   );
 };

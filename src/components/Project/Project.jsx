@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Button from "../../UI/Button/Button";
 import projects from "../../utils/projects";
+import referToComponent from "../../utils/refer";
 
 const Project = () => {
   const [load, setLoad] = useState(6);
@@ -23,7 +24,7 @@ const Project = () => {
         <h1 className="text-5xl lg:text-7xl font-semibold sm:font-bold">
           Projects
         </h1>
-        <Button url="mailto:ram706860@gmail.com" text="contact me" />
+        <Button url="/#contact" text="contact me" onClick={referToComponent} />
       </div>
       <div className="projects uppercase py-8 lg:py-16 grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-x-8 sm:gap-y-16">
         {projects.map((project, index) => {

@@ -63,7 +63,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact_form flex flex-col sm:flex-row justify-between gap-8 font-bold text-center sm:text-left pb-8 lg:pb-16 border-b border-text-primary">
+    <div
+      id="contact"
+      className="contact_form flex flex-col sm:flex-row justify-between gap-8 font-bold text-center sm:text-left pb-8 lg:pb-16 border-b border-text-primary"
+    >
       <div className="flex flex-col gap-4 lg:gap-8">
         <h1 className="text-4xl sm:text-5xl lg:text-7xl">Contacts</h1>
         <p className="text-xs sm:text-sm max-w-sm text-text-primary">
