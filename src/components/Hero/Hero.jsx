@@ -22,7 +22,11 @@ const Hero = () => {
           accessible web apps that users love.
         </p>
       </div>
-      <Button url="/#contact" text="contact me" onClick={referToComponent} />
+      <Button
+        url="/#contact"
+        text="contact me"
+        onClick={() => referToComponent("#contact", "end")}
+      />
     </div>
   );
 };

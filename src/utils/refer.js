@@ -1,8 +1,7 @@
-const referToComponent = () => {
-  const id = window.location.hash;
+const referToComponent = (id, position) => {
   document
     .querySelector(id)
-    .scrollIntoView({ behavior: "smooth", block: "end" });
+    .scrollIntoView({ behavior: "smooth", block: position });
 };
 
 export default referToComponent;

@@ -1,7 +1,6 @@
 import skills from "../../utils/skills";
 
 const Skill = () => {
-  console.log(skills.length);
   return (
     <div className="skill_container w-full overflow-hidden mt-8 py-12">
       <div className="skill_slide grid grid-flow-col">

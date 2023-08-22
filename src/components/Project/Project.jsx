@@ -4,7 +4,7 @@ import projects from "../../utils/projects";
 import referToComponent from "../../utils/refer";
 
 const Project = () => {
-  const [load, setLoad] = useState(6);
+  const [load, setLoad] = useState(4);
   const [loadingStatus, setLoadingStatus] = useState("more");
   const projectLoadRef = useRef(null);
 
@@ -13,18 +13,27 @@ const Project = () => {
     if (load >= projects.length - 4) setLoadingStatus("less");
     if (loadingStatus === "less") {
       setLoadingStatus("more");
-      setLoad(6);
+      setLoad(4);
     }
-    projectLoadRef.current?.scrollIntoView({ behavior: "smooth" });
+    loadingStatus === "more"
+      ? referToComponent("#latest_project", "start")
+      : referToComponent("#project_container", "start");
   };
 
   return (
-    <div className="py-8 lg:py-16 border-b border-text-primary">
+    <div
+      id="project_container"
+      className="py-8 lg:py-16 border-b border-text-primary"
+    >
       <div className="flex justify-between items-center">
         <h1 className="text-5xl lg:text-7xl font-semibold sm:font-bold">
           Projects
         </h1>
-        <Button url="/#contact" text="contact me" onClick={referToComponent} />
+        <Button
+          url="/#contact"
+          text="contact me"
+          onClick={() => referToComponent("#contact", "end")}
+        />
       </div>
       <div className="projects uppercase py-8 lg:py-16 grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-x-8 sm:gap-y-16">
         {projects.map((project, index) => {
@@ -69,11 +78,14 @@ const Project = () => {
       </div>
       <div
         className="dropdown flex justify-center lg:justify-start"
-        onClick={handleLoading}
-        id="loading_status"
+        id="latest_project"
         ref={projectLoadRef}
       >
-        <Button text={`show ${loadingStatus}...`} url={""} />
+        <Button
+          text={`show ${loadingStatus}...`}
+          url={""}
+          onClick={handleLoading}
+        />
       </div>
     </div>
   );
