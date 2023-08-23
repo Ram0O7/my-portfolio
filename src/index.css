@@ -17,9 +17,7 @@ main {
   animation: slide 20s infinite linear;
   animation-fill-mode: forwards;
 }
-.skill_container:active .skill_slide {
-  animation-play-state: paused;
-}
+
 @keyframes slide {
   0% {
     transform: translateX(0);
@@ -114,9 +112,7 @@ svg {
       transform: translateX(-2080px);
     }
   }
-  .skill_container:hover .skill_slide {
-    animation-play-state: paused;
-  }
+
   main {
     padding-inline: 5vw;
   }

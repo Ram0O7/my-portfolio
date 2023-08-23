@@ -1,8 +1,20 @@
 import skills from "../../utils/skills";
 
 const Skill = () => {
+  const HandleAnimationState = () => {
+    const element = document.querySelector(".skill_slide");
+    if (element.style.WebkitAnimationPlayState === "paused") {
+      element.style.WebkitAnimationPlayState = "running";
+    } else {
+      element.style.WebkitAnimationPlayState = "paused";
+    }
+  };
+
   return (
-    <div className="skill_container w-full overflow-hidden mt-8 py-12">
+    <div
+      className="skill_container w-full overflow-hidden mt-8 py-12"
+      onClick={HandleAnimationState}
+    >
       <div className="skill_slide grid grid-flow-col">
         {skills.map((skill) => {
           const { language, experience, icon } = skill;
